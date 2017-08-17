@@ -1,0 +1,114 @@
+{
+	"id": "E66D49E6-F521-4A91-8D49-3E76159D259E",
+	"name": "Pandoc",
+	"friendlyName": "Pandoc convert",
+	"description": "Convert text files using Pandoc",
+	"helpMarkDown": "[More Information](http://pandoc.org/index.html)",
+	"category": "Utility",
+	"author": "Cliff Chapman",
+	"version": {
+		"Major": 0,
+		"Minor": 1,
+		"Patch": 0
+	},
+	"instanceNameFormat": "Run Pandoc on $(targetFiles)",
+	"groups": [
+		{
+			"name": "advanced",
+			"displayName": "Advanced",
+			"isExpanded": false
+		}
+	],
+	"inputs": [
+		{
+			"name": "targetFiles",
+			"type": "multiline",
+			"label": "Target files",
+			"defaultValue": "**\\*.md",
+			"required": true,
+			"helpMarkDown": "Files to be converted. Supports multiple lines of match patterns. [More Information](https://go.microsoft.com/fwlink/?LinkID=708389)"
+		},
+		{
+			"name": "inputFormat",
+			"type": "picklist",
+			"label": "Input format",
+			"required": true,
+			"helpMarkDown": "The input format to interpret the files as. [More Information](http://pandoc.org/MANUAL.html#general-options)",
+			"defaultValue": "markdown_strict",
+			"options": {
+				"markdown": "markdown",
+				"markdown_strict": "markdown_strict",
+				"markdown_phpextra": "markdown_phpextra",
+				"markdown_github": "markdown_github",
+				"markdown_mmd": "markdown_mmd",
+				"commonmark": "commonmark",
+				"textile": "textile",
+				"rst": "rst",
+				"html": "html",
+				"docbook": "docbook",
+				"t2t": "t2t",
+				"docx": "docx",
+				"odt": "odt",
+				"epub": "epub",
+				"opml": "opml",
+				"org": "org",
+				"mediawiki": "mediawiki",
+				"twiki": "twiki",
+				"haddock": "haddock",
+				"latex": "latex"
+			}
+		},
+		{
+			"name": "outputFormat",
+			"type": "picklist",
+			"label": "Output format",
+			"required": true,
+			"helpMarkDown": "The output format to convert the files to. [More Information](http://pandoc.org/MANUAL.html#general-options)",
+			"defaultValue": "markdown_strict",
+			"options": {
+				"markdown": "markdown",
+				"markdown_strict": "markdown_strict",
+				"markdown_phpextra": "markdown_phpextra",
+				"markdown_github": "markdown_github",
+				"markdown_mmd": "markdown_mmd",
+				"commonmark": "commonmark",
+				"textile": "textile",
+				"rst": "rst",
+				"html": "html",
+				"docbook": "docbook",
+				"t2t": "t2t",
+				"docx": "docx",
+				"odt": "odt",
+				"epub": "epub",
+				"opml": "opml",
+				"org": "org",
+				"mediawiki": "mediawiki",
+				"twiki": "twiki",
+				"haddock": "haddock",
+				"latex": "latex"
+			}
+		},
+		{
+			"name": "standalone",
+			"type": "boolean",
+			"label": "Standalone File",
+			"defaultValue": "true",
+			"required": false,
+			"helpMarkDown": "Whether to output with an appropriate header and footer. [More information](http://pandoc.org/MANUAL.html#general-writer-options)",
+			"groupName": "advanced"
+		},
+		{
+			"name": "commandLineOptions",
+			"type": "string",
+			"label": "Command line options",
+			"defaultValue": "",
+			"required": false,
+			"helpMarkDown": "Other command line switches to pass to the Pandoc command. [More information](http://pandoc.org/MANUAL.html)"
+		}
+	],
+	"execution": {
+		"Node": {
+			"target": "index.js"
+		}
+	}
+}

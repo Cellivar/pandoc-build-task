@@ -1,0 +1,41 @@
+{
+	"manifestVersion": 1,
+	"id": "pandoc-build-task",
+	"name": "Pandoc build task",
+	"version": "0.1.0",
+	"description": "A Pandoc build task.",
+	"publisher": "UL LLC",
+	"public": true,
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
+	"categories": [
+		"Build and release"
+	],
+	"tags": [
+		"utility",
+		"tasks"
+	],
+	"icons": {
+		"default": "pandoc-icon.png"
+	},
+	"contributions": [
+		{
+			"id": "ULSCS.Pandoc",
+			"type": "ms.vss-distributed-task.task",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"properties": {
+				"name": "pandoc-task"
+			}
+		}
+	],
+	"files": [
+		{
+			"path": "pandoc-task"
+		}
+	]
+}
