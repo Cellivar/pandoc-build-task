@@ -250,4 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Output files
 *.vsix
+pandoc.js
+pandoc.js.map
