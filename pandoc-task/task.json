@@ -9,7 +9,7 @@
 	"version": {
 		"Major": 0,
 		"Minor": 1,
-		"Patch": 0
+		"Patch": 7
 	},
 	"instanceNameFormat": "Run Pandoc on $(targetFiles)",
 	"groups": [
@@ -108,7 +108,8 @@
 			"label": "Command line options",
 			"defaultValue": "",
 			"required": false,
-			"helpMarkDown": "Other command line switches to pass to the Pandoc command. [More information](http://pandoc.org/MANUAL.html)"
+			"helpMarkDown": "Other command line switches to pass to the Pandoc command. [More information](http://pandoc.org/MANUAL.html)",
+			"groupName": "advanced"
 		}
 	],
 	"execution": {

@@ -1,5 +1,4 @@
 import task = require('vsts-task-lib/task');
-import toolrunner = require('vsts-task-lib/toolrunner');
 import path = require('path');
 
 function getExtension(format: string) {
@@ -43,10 +42,6 @@ function getExtension(format: string) {
 async function run() {
 	let sourceFolder = task.getPathInput('sourceFolder', true, true);
 	let targets = task.getDelimitedInput('targetfiles', '\n', true);
-	let inputFormat = task.getInput('inputFormat', true);
-	let outputFormat = task.getInput('outputFormat', true);
-	let standaloneFormat = task.getBoolInput('standalone', false);
-	let commandLineArgs = task.getInput('commandLineOptions', false);
 
 	// normalize the source folder path. this is important for later in order to accurately
 	// determine the relative path of each found file (substring using sourceFolder.length).
@@ -62,16 +57,15 @@ async function run() {
 		matchedFiles.forEach((file: string) => {
 			// Get the file without the extension
 			var newfile = path.basename(file, path.extname(file)) + getExtension;
-			var outputFile = path.dirname(file) + '/' + newfile;
 
-
-			let pandoc = task.tool(task.which('pandoc', true))
-				.arg('--from=' + inputFormat) // Input format
-				.arg('--to=' + outputFormat) // Output format
-				.line(commandLineArgs) // Additional arguments
-				.argIf(standaloneFormat, '--standalone')
+			let pandoc = task.tool(task.which('./pandoc.exe', true));
+			pandoc = pandoc
+				.arg('--from=' + task.getInput('inputFormat', true)) // Input format
+				.arg('--to=' + task.getInput('outputFormat', true)) // Output format
+				.line(task.getInput('commandLineOptions', false)) // Additional arguments
+				.argIf(task.getBoolInput('standalone', false), '--standalone')
 				.arg(file) // Input file
-				.arg('--output=' + outputFile);
+				.arg('--output=' + path.dirname(file) + '/' + newfile);
 
 			console.log("Converting " + file + " to " + newfile);
 

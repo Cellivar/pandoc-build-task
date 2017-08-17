@@ -2,10 +2,10 @@
 	"manifestVersion": 1,
 	"id": "pandoc-build-task",
 	"name": "Pandoc build task",
-	"version": "0.1.0",
+	"version": "0.1.7",
 	"description": "A Pandoc build task.",
 	"publisher": "cliffchapman",
-	"public": true,
+	"public": false,
 	"targets": [
 		{
 			"id": "Microsoft.VisualStudio.Services"
@@ -16,10 +16,22 @@
 	],
 	"tags": [
 		"utility",
-		"tasks"
+		"tasks",
+		"documentation",
+		"pandoc",
+		"markdown",
+		"docx"
 	],
 	"icons": {
 		"default": "pandoc-icon.png"
+	},
+	"content": {
+		"details": {
+			"path": "readme.md"
+		},
+		"license": {
+			"path": "license.md"
+		}
 	},
 	"contributions": [
 		{

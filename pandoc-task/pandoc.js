@@ -51,10 +51,6 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         let sourceFolder = task.getPathInput('sourceFolder', true, true);
         let targets = task.getDelimitedInput('targetfiles', '\n', true);
-        let inputFormat = task.getInput('inputFormat', true);
-        let outputFormat = task.getInput('outputFormat', true);
-        let standaloneFormat = task.getBoolInput('standalone', false);
-        let commandLineArgs = task.getInput('commandLineOptions', false);
         sourceFolder = path.normalize(sourceFolder);
         let allPaths = task.find(sourceFolder);
         let matchedPaths = task.match(allPaths, targets, sourceFolder);
@@ -63,14 +59,14 @@ function run() {
         try {
             matchedFiles.forEach((file) => {
                 var newfile = path.basename(file, path.extname(file)) + getExtension;
-                var outputFile = path.dirname(file) + '/' + newfile;
-                let pandoc = task.tool(task.which('pandoc', true))
-                    .arg('--from=' + inputFormat)
-                    .arg('--to=' + outputFormat)
-                    .line(commandLineArgs)
-                    .argIf(standaloneFormat, '--standalone')
+                let pandoc = task.tool(task.which('./pandoc.exe', true));
+                pandoc = pandoc
+                    .arg('--from=' + task.getInput('inputFormat', true))
+                    .arg('--to=' + task.getInput('outputFormat', true))
+                    .line(task.getInput('commandLineOptions', false))
+                    .argIf(task.getBoolInput('standalone', false), '--standalone')
                     .arg(file)
-                    .arg('--output=' + outputFile);
+                    .arg('--output=' + path.dirname(file) + '/' + newfile);
                 console.log("Converting " + file + " to " + newfile);
                 pandoc.exec();
             });
