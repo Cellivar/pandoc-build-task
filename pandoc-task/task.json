@@ -21,6 +21,15 @@
 	],
 	"inputs": [
 		{
+			"name": "sourceFolder",
+			"type": "filePath",
+			"label": "Source Folder",
+			"defaultValue": "",
+			"required": false,
+			"helpMarkDown": "The source folder that the target file pattern(s) will be run from. Empty is the root of the repo.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: $(agent.builddirectory)"
+
+		},
+		{
 			"name": "targetFiles",
 			"type": "multiline",
 			"label": "Target files",
@@ -46,7 +55,6 @@
 				"rst": "rst",
 				"html": "html",
 				"docbook": "docbook",
-				"t2t": "t2t",
 				"docx": "docx",
 				"odt": "odt",
 				"epub": "epub",
@@ -54,7 +62,6 @@
 				"org": "org",
 				"mediawiki": "mediawiki",
 				"twiki": "twiki",
-				"haddock": "haddock",
 				"latex": "latex"
 			}
 		},
@@ -76,15 +83,13 @@
 				"rst": "rst",
 				"html": "html",
 				"docbook": "docbook",
-				"t2t": "t2t",
 				"docx": "docx",
 				"odt": "odt",
 				"epub": "epub",
 				"opml": "opml",
 				"org": "org",
+				"man": "man",
 				"mediawiki": "mediawiki",
-				"twiki": "twiki",
-				"haddock": "haddock",
 				"latex": "latex"
 			}
 		},

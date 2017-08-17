@@ -4,7 +4,7 @@
 	"name": "Pandoc build task",
 	"version": "0.1.0",
 	"description": "A Pandoc build task.",
-	"publisher": "UL LLC",
+	"publisher": "cliffchapman",
 	"public": true,
 	"targets": [
 		{
