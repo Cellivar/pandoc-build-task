@@ -108,7 +108,8 @@
 	],
 	"execution": {
 		"Node": {
-			"target": "index.js"
+			"target": "pandoc.js",
+			"argumentFormat": ""
 		}
 	}
 }
