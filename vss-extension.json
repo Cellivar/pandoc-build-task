@@ -2,7 +2,7 @@
 	"manifestVersion": 1,
 	"id": "pandoc-build-task",
 	"name": "Pandoc build task",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "A Pandoc build task.",
 	"publisher": "cliffchapman",
 	"public": false,
